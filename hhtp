@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Для Марішика 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* щоб не виділявся текст при тапах */
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffdde1 0%, #ee9ca7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Helvetica Neue', cursive, sans-serif;
+            padding: 16px;
+        }
+
+        /* СТОРІНКА-КОНТЕЙНЕР */
+        .app {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 248, 245, 0.9);
+            backdrop-filter: blur(2px);
+            border-radius: 64px 64px 56px 56px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255,255,200,0.5);
+            overflow: hidden;
+            padding: 20px 18px 32px;
+            transition: all 0.2s ease;
+        }
+
+        /* ВКЛАДКИ (навігація) */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            background: #fff0f0;
+            padding: 12px 10px;
+            border-radius: 100px;
+            box-shadow: inset 0 1px 3px #0001, 0 4px 8px #ffb6c140;
+        }
+
+        .tab-btn {
+            background: #ffe6ed;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 40px;
+            color: #b13e5c;
+            font-family: inherit;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex: 0 1 auto;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: #ff89a8;
+            color: white;
+            box-shadow: 0 6px 12px #ff90ac70;
+            transform: scale(0.97);
+        }
+
+        /* КОНТЕНТ ВКЛАДОК */
+        .tab-content {
+            display: none;
+            text-align: center;
+            animation: fadePop 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            min-height: 380px;
+            padding: 12px 4px;
+        }
+
+        .tab-content.active-content {
+            display: block;
+        }
+
+        @keyframes fadePop {
+            0% { opacity: 0; transform: scale(0.96); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* стиль тексту, картинок-сердець */
+        h2 {
+            font-size: 1.9rem;
+            margin: 15px 0 12px;
+            color: #c73b5c;
+        }
+
+        .big-emoji {
+            font-size: 5rem;
+            display: inline-block;
+            margin: 15px 0;
+        }
+
+        .heart-wave {
+            font-size: 2.8rem;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+
+        .message {
+            font-size: 1.55rem;
+            font-weight: 600;
+            background: #fff0f3dd;
+            padding: 14px 12px;
+            border-radius: 55px;
+            margin: 20px 0;
+            color: #a12e4a;
+            backdrop-filter: blur(4px);
+        }
+
+        .big-love {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #ff7e9e, #ffb347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        /* сердечна анімація (додаткові іскорки) */
+        .floating-hearts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 25px 0;
+        }
+
+        /* для адаптиву на телефонах – збільшуємо кнопки, щоб було зручно пальцем */
+        @media (max-width: 500px) {
+            .tabs {
+                gap: 8px;
+            }
+            .tab-btn {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+            .message {
+                font-size: 1.3rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .big-emoji {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <div class="tabs">
+        <button class="tab-btn" data-tab="tab1">🐣 Мілашик?</button>
+        <button class="tab-btn" data-tab="tab2">😢 Не грусти</button>
+        <button class="tab-btn" data-tab="tab3">😊 Посміхнись</button>
+        <button class="tab-btn" data-tab="tab4">💖 Сердечки</button>
+        <button class="tab-btn active" data-tab="tab5">✨ Головне ✨</button>
+    </div>
+
+    <!-- Вкладка 1 -->
+    <div class="tab-content" id="tab1">
+        <div class="big-emoji">🙈💘</div>
+        <h2>Ойй, а щоо за мілашик відкрив цю сторіночку?</h2>
+        <div class="message">✨ Мабуть, найкраща людина у всесвіті ✨</div>
+        <div class="floating-hearts">❤️ 🧡 💛 💚 💙 💜</div>
+    </div>
+
+    <!-- Вкладка 2 -->
+    <div class="tab-content" id="tab2">
+        <div class="big-emoji">🌧️🤍</div>
+        <h2>Нее грусти, малишик...</h2>
+        <div class="message">Твоя усмішка — це магія, яка рятує день 🥺</div>
+        <div class="heart-wave">💫 ти вже робиш цей світ кращим, просто існуючи 💫</div>
+    </div>
+
+    <!-- Вкладка 3 -->
+    <div class="tab-content" id="tab3">
+        <div class="big-emoji">😁💕</div>
+        <h2>Посміхнись!</h2>
+        <div class="message">Тобі дужее личить посмішкаа ✨</div>
+        <div style="font-size: 3rem; letter-spacing: 8px;">☀️😊☀️</div>
+        <div class="floating-hearts">💖💗💓💞💕</div>
+    </div>
+
+    <!-- Вкладка 4 -->
+    <div class="tab-content" id="tab4">
+        <div class="big-emoji">💗💗💗</div>
+        <h2>СЕРДЕЧКИИ простоо дуже многоо</h2>
+        <div class="heart-wave" id="heartsContainer">
+            ❤️ 💖 💗 💓 💕 💞 💘 💝 💖 ❤️
+        </div>
+        <div class="message">бери скільки хочеш, вони всі твої 💌</div>
+        <button id="addMoreHearts" style="background:#ffb7c5; border:none; padding: 8px 20px; border-radius: 50px; font-size:1rem; margin-top:12px; font-weight:bold; color:#a1304b;">💥 + ще сердечок 💥</button>
+    </div>
+
+    <!-- Вкладка 5 головна (Люблю тебе МАРІШИК) -->
+    <div class="tab-content active-content" id="tab5">
+        <div class="big-emoji">🌷👸🏻🌷</div>
+        <h2 style="font-size:2.2rem;">💖 Люблю тебе МАРІШИК 💖</h2>
+        <div class="message" style="background:#ffe0e8;">ТААА ТАКОЖ ДУЖЕ СЕРДЕЧОК З'ЯВЛЯЄТЬСЯ</div>
+        <div id="marishkaHearts" class="heart-wave" style="font-size: 2.5rem;">
+            💖💖💖💖💖💖💖💖💖💖
+        </div>
+        <div class="floating-hearts">
+            <span>💖</span><span>💗</span><span>💖</span><span>💓</span><span>💖</span>
+        </div>
+        <p style="margin-top:18px; font-size:1.1rem; color:#c95c78;">ти — моє сонечко, навіть коли хмарно 🌤️</p>
+    </div>
+</div>
+
+<script>
+    // Логіка перемикання вкладок
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    function switchTab(tabId) {
+        // приховуємо всі контенти
+        contents.forEach(content => {
+            content.classList.remove('active-content');
+        });
+        // показуємо потрібний
+        const activeContent = document.getElementById(tabId);
+        if(activeContent) activeContent.classList.add('active-content');
+
+        // оновлюємо активний клас на кнопках
+        tabs.forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.getAttribute('data-tab') === tabId) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    tabs.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const tabId = btn.getAttribute('data-tab');
+            switchTab(tabId);
+        });
+    });
+
+    // ---- Сердечна магія на вкладці 4 (додавання нових сердечок) ----
+    const addButton = document.getElementById('addMoreHearts');
+    const heartsContainer = document.getElementById('heartsContainer');
+
+    if (addButton && heartsContainer) {
+        addButton.addEventListener('click', () => {
+            // додаємо 10 нових сердечок різними емодзі
+            const newHearts = ['❤️','💖','💗','💓','💕','💞','💘','💝','🧡','💛','💚','💙','💜','🩷','🤍'];
+            let extra = '';
+            for(let i=0; i<12; i++) {
+                const randomHeart = newHearts[Math.floor(Math.random() * newHearts.length)];
+                extra += randomHeart + ' ';
+            }
+            heartsContainer.innerHTML += ' ' + extra;
+            // автоматично скрол не робимо, просто додаємо
+            heartsContainer.style.transition = '0.2s';
+        });
+    }
+
+    // ---- Додатково для головної вкладки: при переході на tab5 теж можна додати більше сердець.
+    // Але щоб було весело: зробимо таємний дощ сердець при натисканні на фразу "Люблю тебе МАРІШИК"
+    const mainTitle = document.querySelector('#tab5 h2');
+    const marishkaHeartsDiv = document.getElementById('marishkaHearts');
+
+    if(mainTitle && marishkaHeartsDiv) {
+        mainTitle.addEventListener('click', () => {
+            // при кліку на заголовок "Люблю тебе МАРІШИК" додаємо ще багато сердечок
+            const heartsArray = ['💖','💗','💖','💓','💖','💕','💞','💘','💖','💖','🧡','🩷'];
+            let extraHearts = '';
+            for(let i=0; i<20; i++) {
+                extraHearts += heartsArray[Math.floor(Math.random() * heartsArray.length)] + ' ';
+            }
+            marishkaHeartsDiv.innerHTML = marishkaHeartsDiv.innerHTML + ' ' + extraHearts;
+            // маленький ефект "стрибнулих сердець"
+            marishkaHeartsDiv.style.transform = 'scale(1.02)';
+            setTimeout(() => { marishkaHeartsDiv.style.transform = ''; }, 200);
+        });
+    }
+
+    // автоматично коригуємо розмір шрифту для довгих рядків на телефонах - не обов'язково, але гарно
+    function adjustFonts() {
+        if(window.innerWidth < 450) {
+            document.querySelectorAll('.message').forEach(el => {
+                el.style.fontSize = '1.2rem';
+            });
+        } else {
+            document.querySelectorAll('.message').forEach(el => {
+                el.style.fontSize = '';
+            });
+        }
+    }
+    window.addEventListener('resize', adjustFonts);
+    adjustFonts();
+
+    // додатковий дрібний дотик : при першому відкритті показується головна вкладка з любов'ю
+    console.log("💖 Сторінка для Марішика готова 💖");
+</script>
+</body>
+</html>
