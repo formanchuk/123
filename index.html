@@ -17,13 +17,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Helvetica Neue', cursive, sans-serif;
+            font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
             padding: 16px;
             overflow: hidden;
-            touch-action: pan-y pinch-zoom; /* дозволяє вертикальний скрол, але горизонтальний свайп ловимо */
         }
 
-        /* контейнер-слайдер */
         .slider-container {
             width: 100%;
             max-width: 500px;
@@ -33,8 +31,6 @@
             border-radius: 64px 64px 56px 56px;
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            position: relative;
-            touch-action: pan-y pinch-zoom;
         }
 
         .slides-wrapper {
@@ -43,9 +39,7 @@
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* ховаємо скролбар */
-            cursor: grab;
-            touch-action: pan-y pinch-zoom;
+            scrollbar-width: none;
         }
 
         .slides-wrapper::-webkit-scrollbar {
@@ -55,18 +49,16 @@
         .slide {
             flex: 0 0 100%;
             scroll-snap-align: start;
-            padding: 30px 20px 40px;
+            padding: 40px 20px;
             text-align: center;
             min-height: 550px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            box-sizing: border-box;
+            gap: 25px;
         }
 
-        /* індикатори (точки внизу) */
         .dots {
             display: flex;
             justify-content: center;
@@ -91,126 +83,100 @@
             opacity: 1;
         }
 
-        /* стилі тексту, як раніше, але трохи більше */
         h2 {
             font-size: 1.9rem;
-            margin: 15px 0 12px;
+            margin: 15px 0;
             color: #c73b5c;
+            line-height: 1.3;
         }
 
         .big-emoji {
             font-size: 5rem;
-            display: inline-block;
         }
 
         .heart-wave {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             line-height: 1.3;
-            word-break: break-word;
+            letter-spacing: 5px;
         }
 
         .message {
-            font-size: 1.55rem;
+            font-size: 1.6rem;
             font-weight: 600;
             background: #fff0f3dd;
             padding: 14px 12px;
             border-radius: 55px;
-            margin: 10px 0;
             color: #a12e4a;
         }
 
-        .floating-hearts {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin: 15px 0;
+        .huge-text {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #c73b5c;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            line-height: 1.2;
         }
 
-        button {
-            background: #ffb7c5;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #a1304b;
-            margin-top: 12px;
-            cursor: pointer;
+        .swipe-hint {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            padding-bottom: 15px;
+            color: #b13e5c;
+            text-align: center;
         }
 
         @media (max-width: 500px) {
             .message { font-size: 1.3rem; }
             h2 { font-size: 1.6rem; }
             .big-emoji { font-size: 4rem; }
+            .huge-text { font-size: 2.2rem; }
             .slide { padding: 20px 16px; min-height: 500px; }
-        }
-
-        /* підказка для свайпу */
-        .swipe-hint {
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin-top: 20px;
-            color: #b13e5c;
         }
     </style>
 </head>
 <body>
 <div class="slider-container">
     <div class="slides-wrapper" id="slidesWrapper">
-        <!-- Слайд 1: Мілашик -->
+        <!-- Слайд 1: Мілашик + 5 сердечок -->
         <div class="slide">
-            <div class="big-emoji">🙈💘</div>
+            <div class="big-emoji">🤗</div>
             <h2>Ойй, а щоо за мілашик відкрив цю сторіночку?</h2>
-            <div class="message">✨ Мабуть, найкраща людина у всесвіті ✨</div>
-            <div class="floating-hearts">❤️ 🧡 💛 💚 💙 💜</div>
+            <div class="heart-wave">❤️ ❤️ ❤️ ❤️ ❤️</div>
         </div>
 
-        <!-- Слайд 2: Не грусти -->
+        <!-- Слайд 2: Не грусти + ти робиш світ кращим -->
         <div class="slide">
             <div class="big-emoji">🌧️🤍</div>
             <h2>Нее грусти, малишик...</h2>
-            <div class="message">Твоя усмішка — це магія, яка рятує день 🥺</div>
-            <div class="heart-wave">💫 ти вже робиш цей світ кращим, просто існуючи 💫</div>
+            <div class="message">Ти вже робиш цей світ кращим, просто існуючи 💫</div>
         </div>
 
-        <!-- Слайд 3: Посміхнись -->
+        <!-- Слайд 3: Посміхнись + тільки сердечка -->
         <div class="slide">
-            <div class="big-emoji">😁💕</div>
-            <h2>Посміхнись!</h2>
-            <div class="message">Тобі дужее личить посмішкаа ✨</div>
-            <div style="font-size: 3rem; letter-spacing: 8px;">☀️😊☀️</div>
-            <div class="floating-hearts">💖💗💓💞💕</div>
+            <div class="big-emoji">😊💕</div>
+            <h2>Посміхнись! Тобі дуже личить посмішкаааа</h2>
+            <div class="heart-wave">💖 💖 💖 💖 💖</div>
         </div>
 
-        <!-- Слайд 4: Сердечки -->
+        <!-- Слайд 4: просто багато сердечок -->
         <div class="slide">
-            <div class="big-emoji">💗💗💗</div>
-            <h2>СЕРДЕЧКИИ простоо дуже многоо</h2>
-            <div class="heart-wave" id="heartsContainerSlide">
+            <div class="heart-wave" style="font-size: 3rem;" id="heartsSlide">
                 ❤️ 💖 💗 💓 💕 💞 💘 💝 💖 ❤️
             </div>
-            <div class="message">бери скільки хочеш, вони всі твої 💌</div>
-            <button id="addHeartsBtn">💥 + ще сердечок 💥</button>
+            <button id="addHeartsBtn" style="background:#ffb7c5; border:none; padding: 10px 24px; border-radius: 50px; font-size:1rem; font-weight:bold; color:#a1304b;">💥 додати ще сердечок 💥</button>
         </div>
 
-        <!-- Слайд 5: Люблю тебе МАРІШИК (головний) -->
+        <!-- Слайд 5: Принцеса + ЛЮБЛЮ ТЕБЕ МАРІШИК + одне сердечко -->
         <div class="slide">
-            <div class="big-emoji">🌷👸🏻🌷</div>
-            <h2 style="font-size:2rem;">💖 Люблю тебе МАРІШИК 💖</h2>
-            <div class="message" style="background:#ffe0e8;">ТААА ТАКОЖ ДУЖЕ СЕРДЕЧОК З'ЯВЛЯЄТЬСЯ</div>
-            <div id="marishkaHeartsSlide" class="heart-wave" style="font-size: 2rem;">
-                💖💖💖💖💖💖💖💖💖💖
-            </div>
-            <div class="floating-hearts">
-                <span>💖</span><span>💗</span><span>💖</span><span>💓</span><span>💖</span>
-            </div>
-            <p style="margin-top:12px; font-size:1rem; color:#c95c78;">ти — моє сонечко, навіть коли хмарно 🌤️</p>
+            <div class="big-emoji">👸🏻💖</div>
+            <div class="huge-text">ЛЮБЛЮ ТЕБЕ<br>МАРІШИК</div>
+            <div class="heart-wave">❤️</div>
         </div>
     </div>
 
     <div class="dots" id="dotsContainer"></div>
-    <div class="swipe-hint">👉 Гортай ліворуч / праворуч 👈</div>
+    <div class="swipe-hint">👉 гортай ліворуч / праворуч 👈</div>
 </div>
 
 <script>
@@ -220,23 +186,19 @@
     let currentIndex = 0;
     let autoScrollTimeout = null;
 
-    // створити точки-індикатори
     function createDots() {
         dotsContainer.innerHTML = '';
         slides.forEach((_, i) => {
             const dot = document.createElement('div');
             dot.classList.add('dot');
             if (i === currentIndex) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(i);
-            });
+            dot.addEventListener('click', () => goToSlide(i));
             dotsContainer.appendChild(dot);
         });
     }
 
     function updateDots() {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, i) => {
+        document.querySelectorAll('.dot').forEach((dot, i) => {
             if (i === currentIndex) dot.classList.add('active');
             else dot.classList.remove('active');
         });
@@ -246,14 +208,10 @@
         if (index < 0) index = 0;
         if (index >= slides.length) index = slides.length - 1;
         currentIndex = index;
-        wrapper.scrollTo({
-            left: wrapper.clientWidth * currentIndex,
-            behavior: 'smooth'
-        });
+        wrapper.scrollTo({ left: wrapper.clientWidth * currentIndex, behavior: 'smooth' });
         updateDots();
     }
 
-    // визначення, який слайд видно після прокрутки
     function updateCurrentOnScroll() {
         const scrollLeft = wrapper.scrollLeft;
         const slideWidth = wrapper.clientWidth;
@@ -264,58 +222,30 @@
         }
     }
 
-    // слухаємо подію прокрутки (свайп)
     wrapper.addEventListener('scroll', () => {
         if (autoScrollTimeout) clearTimeout(autoScrollTimeout);
-        autoScrollTimeout = setTimeout(() => {
-            updateCurrentOnScroll();
-        }, 50);
+        autoScrollTimeout = setTimeout(updateCurrentOnScroll, 50);
     });
 
-    // для коректного оновлення при ресайзі
-    window.addEventListener('resize', () => {
-        goToSlide(currentIndex);
-    });
+    window.addEventListener('resize', () => goToSlide(currentIndex));
 
-    // сердечна магія на 4 слайді
+    // Кнопка додавання сердечок на 4 слайді
     const addBtn = document.getElementById('addHeartsBtn');
-    const heartsContainer = document.getElementById('heartsContainerSlide');
-    if (addBtn && heartsContainer) {
+    const heartsDiv = document.getElementById('heartsSlide');
+    if (addBtn && heartsDiv) {
         addBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const newHearts = ['❤️','💖','💗','💓','💕','💞','💘','💝','🧡','💛','💚','💙','💜','🩷','🤍'];
+            const heartsList = ['❤️','💖','💗','💓','💕','💞','💘','💝'];
             let extra = '';
-            for(let i=0; i<12; i++) {
-                const randomHeart = newHearts[Math.floor(Math.random() * newHearts.length)];
-                extra += randomHeart + ' ';
+            for (let i = 0; i < 10; i++) {
+                extra += heartsList[Math.floor(Math.random() * heartsList.length)] + ' ';
             }
-            heartsContainer.innerHTML += ' ' + extra;
+            heartsDiv.innerHTML += ' ' + extra;
         });
     }
 
-    // на головному слайді при кліку на заголовок додаємо сердечка
-    const mainTitle = document.querySelector('.slide:last-child h2');
-    const marishkaDiv = document.getElementById('marishkaHeartsSlide');
-    if(mainTitle && marishkaDiv) {
-        mainTitle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const heartsArray = ['💖','💗','💖','💓','💖','💕','💞','💘','💖','💖','🧡','🩷'];
-            let extraHearts = '';
-            for(let i=0; i<20; i++) {
-                extraHearts += heartsArray[Math.floor(Math.random() * heartsArray.length)] + ' ';
-            }
-            marishkaDiv.innerHTML = marishkaDiv.innerHTML + ' ' + extraHearts;
-            marishkaDiv.style.transform = 'scale(1.02)';
-            setTimeout(() => { marishkaDiv.style.transform = ''; }, 200);
-        });
-    }
-
-    // ініціалізація
     createDots();
-    // через невелику затримку вирівнюємо позицію
-    setTimeout(() => {
-        goToSlide(0);
-    }, 100);
+    setTimeout(() => goToSlide(0), 100);
 </script>
 </body>
 </html>
